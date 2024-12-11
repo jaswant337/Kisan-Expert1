@@ -1,0 +1,29 @@
+<?php
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "loginpg";
+$con = mysqli_connect($host,$user, $password,$dbname);
+
+if(!$con)
+{
+    echo "not connected";
+}
+$name =$_POST['name'];
+$phone =$_POST['phone'];
+$email =$_POST['email'];
+$subject =$_POST['subject'];
+$massage =$_POST['massage'];
+
+$sql ="INSERT INTO `register`(`Name`, `Phone`, `Email`, `Subject`, `Massage`) VALUES ('$name','$phone','$email','$subject','$massage')";
+
+$result = mysqli_query($con , $sql);
+if($result)
+{
+    echo  "data submitted";
+}else
+{
+    echo "Failed";
+}
+
+?>
